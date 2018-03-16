@@ -56,11 +56,12 @@ public class PlayerController : MonoBehaviour {
     public AudioSource jumpSound;
     public AudioSource deadSound;
 
-    [Header("References")]
+    [Header("Other References")]
     public GameManager gameManager;
     [SerializeField]
     private Rigidbody2D weemanRigidbody;
     public bool gameRunning;
+    public GameObject circleBurst;
 
 
     // Use this for initialization
@@ -92,15 +93,6 @@ public class PlayerController : MonoBehaviour {
         spriteAnimatorRef.SetBool("IsSwinging", isSwinging);
         spriteAnimatorRef.SetBool("CanAirDash", canAirDash);
 
-        //AirDash Sparkles
-        if (canAirDash == true && sparkleRef.activeSelf == false)
-        {
-            sparkleRef.SetActive(true);
-        }
-        else if (canAirDash == false && sparkleRef.activeSelf == true)
-        {
-            sparkleRef.SetActive(false);
-        }
 
         //Update when game is running:
         if (gameRunning == true)
@@ -161,6 +153,16 @@ public class PlayerController : MonoBehaviour {
                 }
             }
 
+            //AirDash Sparkles
+            if (canAirDash == true && sparkleRef.activeSelf == false)
+            {
+                sparkleRef.SetActive(true);
+            }
+            else if (canAirDash == false && sparkleRef.activeSelf == true)
+            {
+                sparkleRef.SetActive(false);
+            }
+
             //Jumping
             if (Input.GetKey(KeyCode.Space) || (Input.GetMouseButton(0)) && !stoppedJumping)
             {
@@ -202,6 +204,9 @@ public class PlayerController : MonoBehaviour {
             speedIncreaseMilestone = speedIncreaseMilestoneStore;
             speedMilestoneCount = speedMilestoneCountStore;
             moveSpeed = moveSpeedStore;
+
+            GameObject burstAnimation = Instantiate(circleBurst, transform.position, Quaternion.identity) as GameObject;
+            burstAnimation.GetComponent<SpriteRenderer>().color = Color.red;
         }
     }
 

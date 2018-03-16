@@ -3868,6 +3868,8 @@ MonoBehaviour:
   gameManager: {fileID: 1720447073}
   weemanRigidbody: {fileID: 1986417479}
   gameRunning: 0
+  circleBurst: {fileID: 1794980179645288, guid: 37e47ecefafb49b4eb13263ca87ab04b,
+    type: 2}
 --- !u!120 &1986417484
 LineRenderer:
   m_ObjectHideFlags: 0
