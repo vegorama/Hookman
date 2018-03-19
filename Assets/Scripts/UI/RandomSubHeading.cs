@@ -17,7 +17,7 @@ public class RandomSubHeading : MonoBehaviour {
             "Infinite Runner \n Finite Fun!",
             "Hello Martin",
             "He loves a bit of swinging \n ooh-err",
-            "Start Running \n No Time To Explain!",
+            "Start Running \n No Time To Explain",
             "Give us a job \n please",
             "Just what we needed... \n Another endless runner",
         };

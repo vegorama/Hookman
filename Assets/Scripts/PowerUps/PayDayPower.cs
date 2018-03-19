@@ -9,7 +9,7 @@ public class PayDayPower : MonoBehaviour {
     private float DefaultCoinGenThreshold;
 
     [Header("Sound Refs")]
-    public AudioSource noSpikesSound;
+    public AudioSource chaChingSound;
 
 
     // Use this for initialization
@@ -33,7 +33,7 @@ public class PayDayPower : MonoBehaviour {
 
     private IEnumerator PayDayPowerCoRoutine(float PowerUpDuration)
     {
-        noSpikesSound.Play();
+        chaChingSound.Play();
         platformGenRef.randomCoinThreshold = 100f;
 
         yield return new WaitForSeconds(PowerUpDuration);

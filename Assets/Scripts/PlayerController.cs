@@ -56,6 +56,9 @@ public class PlayerController : MonoBehaviour {
     [Header("Sound Refs")]
     public AudioSource jumpSound;
     public AudioSource deadSound;
+    public AudioSource flaunchSound;
+    public AudioSource ropeHit;
+    public AudioSource ropeMiss;
 
     [Header("Other References")]
     public GameManager gameManager;
@@ -224,6 +227,9 @@ public class PlayerController : MonoBehaviour {
 
         if (hit.collider != null)
         {
+            //play Sound
+            ropeHit.Play();
+
             //hasRope = false;
             isSwinging = true;
             jumpTimeCounter = jumpTime;
@@ -245,6 +251,7 @@ public class PlayerController : MonoBehaviour {
 
         else if (hit.collider == null)
         {
+            ropeMiss.Play();
             StartCoroutine(RopeMissAnimation());
         }
     }
@@ -266,10 +273,12 @@ public class PlayerController : MonoBehaviour {
 
     private void AirDash()
     {
+        //Play sound
+        flaunchSound.Play();
+
         //Set AirDash bool for Camera Controller
         camControllerRef.AirDashCam();
         Vector3 startPosition = ropeShooter.transform.position;
-
 
         int layerMask = 1 << 8;
 
@@ -295,7 +304,6 @@ public class PlayerController : MonoBehaviour {
             ropeShooter.transform.position += ropeShooter.transform.right * 4;
         }
 
-
         for (int i = 0; i < dashSpriteSpawnPos.Length; i++ )
         {
             dashSpriteSpawnPos[i] = startPosition + direction * ((i * 4f) / dashSpriteSpawnPos.Length);
@@ -310,7 +318,7 @@ public class PlayerController : MonoBehaviour {
 
         //Show Dash Sparkles
         dashSparkleRef.GetComponent<SparkleAutoSelfDisable>().CallEnableDisable();
-       
+
     }
 
     public void CallOnDeath()

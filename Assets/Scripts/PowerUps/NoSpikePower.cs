@@ -12,6 +12,9 @@ public class NoSpikePower : MonoBehaviour
     [Header("Sound Refs")]
     public AudioSource noSpikesSound;
 
+    [Header("Pop Ref")]
+    public GameObject CircleBurst;
+
 
 
     // Use this for initialization
@@ -36,6 +39,9 @@ public class NoSpikePower : MonoBehaviour
         {
             if (spikeList[i].gameObject.name == "Spikes(Clone)")
             {
+                GameObject burstAnimation = Instantiate(CircleBurst, spikeList[i].transform.position, Quaternion.identity) as GameObject;
+                burstAnimation.GetComponent<SpriteRenderer>().color = Color.white;
+
                 spikeList[i].gameObject.SetActive(false);
             }
         }

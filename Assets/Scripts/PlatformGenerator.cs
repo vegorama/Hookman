@@ -125,11 +125,26 @@ public class PlatformGenerator : MonoBehaviour {
 
                 float spikeXposition = Random.Range(-platformWidths[platformSelector] / 2 + 1f, platformWidths[platformSelector] / 2 - 1f);
 
-                Vector3 spikePostions = new Vector3(spikeXposition, 0.5f, 0f);
+                //On top or on bottom?
+                bool spikesOnTop = (Random.Range(0, 2) == 0);
+                if (spikesOnTop == true)
+                {
+                    Vector3 spikePostions = new Vector3(spikeXposition, 0.5f, 0f);
 
-                newSpike.transform.position = transform.position + spikePostions;
-                newSpike.transform.rotation = transform.rotation;
-                newSpike.SetActive(true);
+                    newSpike.transform.position = transform.position + spikePostions;
+                    newSpike.transform.rotation = transform.rotation;
+                    newSpike.SetActive(true);
+                }
+                if (spikesOnTop == false)
+                {
+                    Vector3 spikePostions = new Vector3(spikeXposition, -0.075f, 0f);
+
+                    newSpike.transform.position = transform.position + spikePostions;
+                    newSpike.transform.rotation = Quaternion.Euler(0, 0, 180);
+                    newSpike.SetActive(true);
+                }
+
+
 
             }
 
