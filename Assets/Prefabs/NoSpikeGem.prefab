@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61313393668174858}
   - component: {fileID: 114305766198754374}
   m_Layer: 0
-  m_Name: JEM
+  m_Name: NoSpikeGem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032382611478242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.18, y: -1.32, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 14.904049, y: 4.952652, z: 0}
+  m_LocalScale: {x: 3.766953, y: 3.7669559, z: 3.7669559}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,18 +55,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0022325367, y: 0.004465267}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.72, y: 0.48}
+    oldSize: {x: 0.2, y: 0.19}
     newSize: {x: 0.72, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.72, y: 0.48}
+  m_Size: {x: 0.20744815, y: 0.19422221}
   m_EdgeRadius: 0
 --- !u!114 &114305766198754374
 MonoBehaviour:
@@ -91,7 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02551fbb25071a4cad363963fd5d715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noSpikes: 1
   powerUpDuration: 4
   CircleBurst: {fileID: 1794980179645288, guid: 37e47ecefafb49b4eb13263ca87ab04b,
     type: 2}
@@ -129,8 +128,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300010, guid: 56d739f4956320049bec5dfdd09ed1ff, type: 3}
-  m_Color: {r: 0.69803923, g: 0.89019614, b: 0.6117647, a: 1}
+  m_Sprite: {fileID: 21300004, guid: 83fa27a7652683740863dc29a89734fc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

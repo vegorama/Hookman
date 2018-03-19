@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D myRigidBody;
     public ObjectPooler airDashSpritePool;
     public GameObject sparkleRef;
+    public GameObject dashSparkleRef;
 
     [Header("Sound Refs")]
     public AudioSource jumpSound;
@@ -206,7 +207,7 @@ public class PlayerController : MonoBehaviour {
             moveSpeed = moveSpeedStore;
 
             GameObject burstAnimation = Instantiate(circleBurst, transform.position, Quaternion.identity) as GameObject;
-            burstAnimation.GetComponent<SpriteRenderer>().color = Color.red;
+            burstAnimation.GetComponent<SpriteRenderer>().color = new Color32 (88, 80, 248, 255);
         }
     }
 
@@ -306,9 +307,20 @@ public class PlayerController : MonoBehaviour {
             dashImage.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, ((float)i / dashSpriteSpawnPos.Length) * 0.5f);
             dashImage.GetComponent<AirDashFadeDestroy>().Fade();
         }
-        
+
+        //Show Dash Sparkles
+        dashSparkleRef.GetComponent<SparkleAutoSelfDisable>().CallEnableDisable();
        
     }
 
+    public void CallOnDeath()
+    {
+        sparkleRef.SetActive(false);
+        dashSparkleRef.SetActive(false);
+        gameRunning = false;
+        isSwinging = false;
+        lineRenderer.enabled = false;
+        gameObject.SetActive(false);
+    }
 
 }

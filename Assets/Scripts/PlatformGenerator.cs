@@ -37,7 +37,8 @@ public class PlatformGenerator : MonoBehaviour {
 
     [Header("Power Up Settings")]
     public float powerUpHeight;
-    public ObjectPooler powerUpPool;
+    public ObjectPooler powerUpPoolNoSpikes;
+    public ObjectPooler powerUpPoolPayDay;
     public float powerUpThreshold;
 
 
@@ -83,12 +84,23 @@ public class PlatformGenerator : MonoBehaviour {
 
             if (Random.Range(0f, 100f) < powerUpThreshold)
             {
-                GameObject newPowerUp = powerUpPool.GetPooledObject();
-                newPowerUp.transform.position = transform.position + new Vector3(distanceBetween / 2, powerUpHeight, 0f);
-                newPowerUp.SetActive(true);
+                //Randomly decide which powerup
+                int randomiser = Random.Range(0, 2);
+
+                if (randomiser == 0)
+                {
+                    GameObject newPowerUp = powerUpPoolNoSpikes.GetPooledObject();
+                    newPowerUp.transform.position = transform.position + new Vector3(distanceBetween / 2, powerUpHeight, 0f);
+                    newPowerUp.SetActive(true);
+                }
+                if (randomiser == 1)
+                {
+                    GameObject newPowerUp = powerUpPoolPayDay.GetPooledObject();
+                    newPowerUp.transform.position = transform.position + new Vector3(distanceBetween / 2, powerUpHeight, 0f);
+                    newPowerUp.SetActive(true);
+                }
+
             }
-
-
 
             transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2) + distanceBetween, heightChange, transform.position.z);
 
@@ -120,7 +132,6 @@ public class PlatformGenerator : MonoBehaviour {
                 newSpike.SetActive(true);
 
             }
-
 
             transform.position = new Vector3(transform.position.x + (platformWidths[platformSelector] / 2), transform.position.y, transform.position.z);
 

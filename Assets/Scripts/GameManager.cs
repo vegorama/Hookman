@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
 
     [Header("Overlay")]
     public GameObject overlayRef;
+    public GameObject subHeadingRef;
 
     [Header("Musak")]
     public AudioSource musicSound;
@@ -55,12 +56,8 @@ public class GameManager : MonoBehaviour {
         }
 
         //Stop everything
-        thePlayer.sparkleRef.SetActive(false);
-        scoreManagerRef.scoreIncreasing = false;
-        thePlayer.gameRunning = false;
-        thePlayer.isSwinging = false;       
-        thePlayer.lineRenderer.enabled = false;
-        thePlayer.gameObject.SetActive(false);
+        thePlayer.CallOnDeath();
+        scoreManagerRef.scoreIncreasing = false;    
         musicSound.Stop();
 
         yield return new WaitForSeconds(2f);
@@ -77,10 +74,14 @@ public class GameManager : MonoBehaviour {
         platformGenerator.position = platformStartPoint;
 
         //Restart stuff
-        powerManagerRef.DeactivatePowerUp();
+
+        //TODO FIX DIZ
+        //powerManagerRef.DeactivatePowerUp();
+
         scoreManagerRef.scoreCount = 0;
         thePlayer.gameObject.SetActive(true);
         overlayRef.SetActive(true);
+        subHeadingRef.GetComponent<RandomSubHeading>().GenerateRandomSubHeading();
 
 
     }
