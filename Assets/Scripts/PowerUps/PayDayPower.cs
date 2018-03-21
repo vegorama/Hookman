@@ -41,5 +41,9 @@ public class PayDayPower : MonoBehaviour {
         platformGenRef.randomCoinThreshold = DefaultCoinGenThreshold;
     }
 
-
+    public void StopPowerUp()
+    {
+        StopAllCoroutines();
+        platformGenRef.randomCoinThreshold = DefaultCoinGenThreshold;
+    }
 }

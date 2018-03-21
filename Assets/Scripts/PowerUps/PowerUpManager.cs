@@ -54,4 +54,11 @@ public class PowerUpManager : MonoBehaviour {
 
         powerUpUiText.SetActive(false);
     }
+
+    public void DisablePowerUp()
+    {
+        powerUpUiText.SetActive(false);
+        gameObject.GetComponent<PayDayPower>().StopPowerUp();
+        gameObject.GetComponent<NoSpikePower>().StopPowerUp();
+    }
 }

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     private Vector3 platformStartPoint;
     public PlayerController thePlayer;
     private Vector3 playerStartPoint;
+    public GameObject chaserKillbox;
 
     [Header("Overlay")]
     public GameObject overlayRef;
@@ -40,6 +41,9 @@ public class GameManager : MonoBehaviour {
         overlayRef.SetActive(false);
         thePlayer.gameRunning = true;
         musicSound.Play();
+
+        //StartChaserBox
+        chaserKillbox.GetComponent<ChaseBoxScript>().shouldMove = true;
     }
 
     public void RestartGame()
@@ -74,14 +78,19 @@ public class GameManager : MonoBehaviour {
         platformGenerator.position = platformStartPoint;
 
         //Restart stuff
-
-        //TODO FIX DIZ
-        //powerManagerRef.DeactivatePowerUp();
-
         scoreManagerRef.scoreCount = 0;
         thePlayer.gameObject.SetActive(true);
         overlayRef.SetActive(true);
         subHeadingRef.GetComponent<RandomSubHeading>().GenerateRandomSubHeading();
+
+        //Stop Power ups
+        powerManagerRef.GetComponent<PowerUpManager>().DisablePowerUp();
+
+        //ChaseBox Reset
+        scoreManagerRef.GetComponent<ScoreManager>().pursuitText.color = Color.white;
+        scoreManagerRef.GetComponent<ScoreManager>().pursuitText.text = "Lava distance \n- 30 M";
+        chaserKillbox.GetComponent<ChaseBoxScript>().shouldMove = false;
+        chaserKillbox.GetComponent<ChaseBoxScript>().RestartChaserPosition();
 
 
     }

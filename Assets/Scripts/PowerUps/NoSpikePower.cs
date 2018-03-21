@@ -51,4 +51,9 @@ public class NoSpikePower : MonoBehaviour
         platformGenRef.spikesEnabled = true;
     }
 
+    public void StopPowerUp()
+    {
+        StopAllCoroutines();
+        platformGenRef.spikesEnabled = true;
+    }
 }
