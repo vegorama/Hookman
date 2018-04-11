@@ -16,7 +16,7 @@ public class AirDashFadeDestroy : MonoBehaviour {
 
     public void Fade()
     {
-        Debug.Log("Fade being called" + GetComponent<SpriteRenderer>().color);
+        //Debug.Log("Fade being called" + GetComponent<SpriteRenderer>().color);
         StartCoroutine(SpriteFade());      
     }
 

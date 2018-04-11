@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class ChaseBoxScript : MonoBehaviour {
 
+    [Header("Lava Speed Setting")]
+    public float lavaSpeed;
+
     [Header("Refs")]
     public GameObject weeManRef;
-    public bool shouldMove;
+    public GameObject lavaCheckRef;
     public GameObject nearestPoint;
+    public GameObject lavaBubbles;
+
+    [Header("Settings")]
+    public bool shouldMove;
 
     [Header("Textbox")]
     public float chaserDistance;
@@ -20,29 +27,38 @@ public class ChaseBoxScript : MonoBehaviour {
         startPosition = gameObject.transform.position;
 	}
 	
+
 	// Update is called once per frame
-	void LateUpdate ()
+	void Update ()
     {
-        //Work out distance between
-        Vector3 chaserPos = nearestPoint.transform.position;
-        Vector3 PlayerPos = weeManRef.transform.position;
-        chaserPos.y = 0;
-        PlayerPos.y = 0;
+        //Raycast to work out distance between
+        Vector3 PlayerPos = lavaCheckRef.transform.position;
 
-        chaserDistance = Vector3.Distance(chaserPos, PlayerPos);
+        int layerMask = 1 << 10;
+        RaycastHit2D hit = Physics2D.Raycast(PlayerPos, Vector3.left, Mathf.Infinity, layerMask);
 
+        chaserDistance = hit.distance;
 
         if (shouldMove == true)
         {     
             float moveSpeed = weeManRef.GetComponent<PlayerController>().moveSpeed;
-            transform.position += transform.right * moveSpeed * Time.deltaTime;
+            transform.position += Vector3.right * (moveSpeed * lavaSpeed) * Time.deltaTime;
         }
+
+        if (chaserDistance < 15f)
+        {
+            lavaBubbles.SetActive(true);
+        }
+        else
+        {
+            lavaBubbles.SetActive(false);
+        }
+
     }
 
     public void RestartChaserPosition()
     {
         gameObject.transform.position = startPosition;
     }
-
 
 }

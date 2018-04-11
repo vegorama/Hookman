@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerControllerPhone : MonoBehaviour
+{
 
     [Header("Player Settings")]
     public float moveSpeed;
@@ -74,7 +75,7 @@ public class PlayerController : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         jumpTimeCounter = jumpTime;
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -89,15 +90,15 @@ public class PlayerController : MonoBehaviour {
         isSwinging = false;
         canAirDash = false;
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         //Set isGrounded
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayerRef);
 
         //Set Animator
-        spriteAnimatorRef.SetFloat ("Speed", myRigidBody.velocity.x);
+        spriteAnimatorRef.SetFloat("Speed", myRigidBody.velocity.x);
         spriteAnimatorRef.SetBool("IsGrounded", isGrounded);
         spriteAnimatorRef.SetBool("IsSwinging", isSwinging);
         spriteAnimatorRef.SetBool("CanAirDash", canAirDash);
@@ -132,14 +133,14 @@ public class PlayerController : MonoBehaviour {
             }
 
             //Rope shooting
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetKeyDown(KeyCode.Z) || rightButton.GetComponent<ButtonListener>()._pressed)
             {
                 if (hasRope)
                     RopeShoot();
             }
 
             //Air Dashing
-            if (Input.GetKeyDown(KeyCode.Space) || (Input.GetMouseButtonDown(0)))
+            if (Input.GetKeyDown(KeyCode.Space) || leftButton.GetComponent<ButtonListener>()._pressed)
             {
                 if (!isGrounded && canAirDash && !isSwinging)
                 {
@@ -173,7 +174,7 @@ public class PlayerController : MonoBehaviour {
             }
 
             //Jumping
-            if (Input.GetKey(KeyCode.Space) || (Input.GetMouseButton(0)) && !stoppedJumping)
+            if ((Input.GetKey(KeyCode.Space) || leftButton.GetComponent<ButtonListener>()._pressed) && !stoppedJumping)
             {
                 if (jumpTimeCounter > 0)
                 {
@@ -181,7 +182,7 @@ public class PlayerController : MonoBehaviour {
                     jumpTimeCounter -= Time.deltaTime;
                 }
             }
-            if (Input.GetKeyUp(KeyCode.Space) || (Input.GetMouseButtonUp(0)))
+            if (Input.GetKeyUp(KeyCode.Space) || !leftButton.GetComponent<ButtonListener>()._pressed)
             {
                 jumpTimeCounter = 0;
                 stoppedJumping = true;
@@ -215,7 +216,7 @@ public class PlayerController : MonoBehaviour {
             moveSpeed = moveSpeedStore;
 
             GameObject burstAnimation = Instantiate(circleBurst, transform.position, Quaternion.identity) as GameObject;
-            burstAnimation.GetComponent<SpriteRenderer>().color = new Color32 (88, 80, 248, 255);
+            burstAnimation.GetComponent<SpriteRenderer>().color = new Color32(88, 80, 248, 255);
         }
     }
 
@@ -273,7 +274,7 @@ public class PlayerController : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
 
         lineRenderer.enabled = false;
-        ropeSwingandaMiss = false;     
+        ropeSwingandaMiss = false;
     }
 
     private void AirDash()
@@ -296,7 +297,7 @@ public class PlayerController : MonoBehaviour {
         RaycastHit2D headHit = Physics2D.Raycast(topOfHeadRef.transform.position, direction, 4, layerMask);
         Debug.DrawRay(topOfHeadRef.transform.position, direction, Color.yellow, 5f);
 
-        
+
         float distanceTeleported = 0;
 
         if (hit.collider)
@@ -315,8 +316,8 @@ public class PlayerController : MonoBehaviour {
             ropeShooter.transform.position += ropeShooter.transform.right * 4;
             distanceTeleported = 4f;
         }
-      
-        for (int i = 0; i < dashSpriteSpawnPos.Length; i++ )
+
+        for (int i = 0; i < dashSpriteSpawnPos.Length; i++)
         {
             dashSpriteSpawnPos[i] = startPosition + direction * ((i * distanceTeleported) / dashSpriteSpawnPos.Length);
 

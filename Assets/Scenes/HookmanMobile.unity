@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 49411767}
   - component: {fileID: 49411766}
   - component: {fileID: 49411765}
+  - component: {fileID: 49411768}
   m_Layer: 5
   m_Name: LeftButton
   m_TagString: Untagged
@@ -223,6 +224,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 49411763}
+--- !u!114 &49411768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 49411763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c81f50bf90a5464ebb3bc5b2586baa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pressed: 0
 --- !u!1 &60719791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1562,11 +1575,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &479485329 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1608225883339816, guid: 0c9ba5d68e0ae14468a6dd3d4035b83c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1347941669}
 --- !u!4 &479485330 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4710019492163768, guid: 0c9ba5d68e0ae14468a6dd3d4035b83c,
@@ -1942,7 +1950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212d5db7716f55d48a2e096e776fea7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thePlayer: {fileID: 1986417483}
+  thePlayer: {fileID: 0}
   playerPositionRef: {fileID: 853492076}
   cameraSpeed: 15
   airDashed: 0
@@ -2968,6 +2976,41 @@ Prefab:
         type: 2}
       propertyPath: ShapeModule.radiusThickness
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198332366397675938, guid: b14285c8b9b682b4a8270d33997fa0fc,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198332366397675938, guid: b14285c8b9b682b4a8270d33997fa0fc,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198332366397675938, guid: b14285c8b9b682b4a8270d33997fa0fc,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198332366397675938, guid: b14285c8b9b682b4a8270d33997fa0fc,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198332366397675938, guid: b14285c8b9b682b4a8270d33997fa0fc,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198332366397675938, guid: b14285c8b9b682b4a8270d33997fa0fc,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198332366397675938, guid: b14285c8b9b682b4a8270d33997fa0fc,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 198332366397675938, guid: b14285c8b9b682b4a8270d33997fa0fc,
         type: 2}
@@ -4012,6 +4055,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c9ba5d68e0ae14468a6dd3d4035b83c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1347941670 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1608225883339816, guid: 0c9ba5d68e0ae14468a6dd3d4035b83c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1347941669}
 --- !u!1 &1403178950
 GameObject:
   m_ObjectHideFlags: 0
@@ -4675,7 +4723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformGenerator: {fileID: 1268814365}
-  thePlayer: {fileID: 1986417483}
+  thePlayer: {fileID: 0}
   chaserKillbox: {fileID: 181785858}
   overlayRef: {fileID: 1654341586}
   subHeadingRef: {fileID: 2074405281}
@@ -4704,6 +4752,7 @@ GameObject:
   - component: {fileID: 1753883463}
   - component: {fileID: 1753883462}
   - component: {fileID: 1753883461}
+  - component: {fileID: 1753883464}
   m_Layer: 5
   m_Name: RightButton
   m_TagString: Untagged
@@ -4803,6 +4852,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1753883459}
+--- !u!114 &1753883464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1753883459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c81f50bf90a5464ebb3bc5b2586baa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pressed: 0
 --- !u!1 &1796026310
 GameObject:
   m_ObjectHideFlags: 0
@@ -5140,8 +5201,8 @@ GameObject:
   - component: {fileID: 1986417482}
   - component: {fileID: 1986417480}
   - component: {fileID: 1986417479}
-  - component: {fileID: 1986417483}
   - component: {fileID: 1986417484}
+  - component: {fileID: 1986417481}
   m_Layer: 9
   m_Name: WeeMan
   m_TagString: Player
@@ -5194,6 +5255,62 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.875, y: 1.21875}
   m_EdgeRadius: 0
+--- !u!114 &1986417481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1986417478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb34299345e0194d880d51b8f5a5b95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  jumpForce: 8
+  jumpTime: 0.25
+  jumpTimeCounter: 0
+  leftButton: {fileID: 49411765}
+  rightButton: {fileID: 1753883461}
+  groundCheck: {fileID: 1515780251}
+  groundCheckRadius: 0.1
+  isGrounded: 0
+  groundLayerRef:
+    serializedVersion: 2
+    m_Bits: 256
+  speedIncreaseMilestone: 50
+  speedMultiplier: 1.1
+  hasRope: 0
+  isSwinging: 0
+  ropeShooter: {fileID: 1986417478}
+  ropeLocation: {fileID: 971971075}
+  ropePivot: {fileID: 378716578}
+  rope: {fileID: 0}
+  maxRopeFrameCount: 0
+  lineRenderer: {fileID: 0}
+  canAirDash: 0
+  topOfHeadRef: {fileID: 191454582}
+  camControllerRef: {fileID: 737027549}
+  dashSprite: {fileID: 1556655157652396, guid: 5831280aa20de1046a27d096b14f9802, type: 2}
+  dashSpriteSpawnPos:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  spriteAnimatorRef: {fileID: 184426748}
+  airDashSpritePool: {fileID: 1547223014}
+  sparkleRef: {fileID: 1347941670}
+  dashSparkleRef: {fileID: 1862701057}
+  jumpSound: {fileID: 804117285}
+  deadSound: {fileID: 752539431}
+  flaunchSound: {fileID: 1288162742}
+  ropeHit: {fileID: 1220486019}
+  ropeMiss: {fileID: 185097545}
+  gameManager: {fileID: 1720447073}
+  weemanRigidbody: {fileID: 1986417479}
+  gameRunning: 0
+  circleBurst: {fileID: 1794980179645288, guid: 37e47ecefafb49b4eb13263ca87ab04b,
+    type: 2}
 --- !u!4 &1986417482
 Transform:
   m_ObjectHideFlags: 0
@@ -5215,64 +5332,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1986417483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1986417478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f958d7ec06fbb564d909a6ddbedd6d00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  jumpForce: 8
-  jumpTime: 0.25
-  jumpTimeCounter: 0
-  leftButton: {fileID: 0}
-  rightButton: {fileID: 0}
-  groundCheck: {fileID: 1515780251}
-  groundCheckRadius: 0.1
-  isGrounded: 0
-  groundLayerRef:
-    serializedVersion: 2
-    m_Bits: 256
-  speedIncreaseMilestone: 50
-  speedMultiplier: 1.1
-  hasRope: 0
-  isSwinging: 0
-  ropeShooter: {fileID: 1986417478}
-  ropeLocation: {fileID: 971971075}
-  ropePivot: {fileID: 378716578}
-  rope: {fileID: 0}
-  maxRopeFrameCount: 0
-  lineRenderer: {fileID: 1986417484}
-  canAirDash: 0
-  topOfHeadRef: {fileID: 191454582}
-  camControllerRef: {fileID: 737027549}
-  dashSprite: {fileID: 1556655157652396, guid: 5831280aa20de1046a27d096b14f9802, type: 2}
-  dashSpriteSpawnPos:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  spriteAnimatorRef: {fileID: 184426748}
-  airDashSpritePool: {fileID: 1547223014}
-  sparkleRef: {fileID: 479485329}
-  dashSparkleRef: {fileID: 1862701057}
-  jumpSound: {fileID: 804117285}
-  deadSound: {fileID: 752539431}
-  flaunchSound: {fileID: 1288162742}
-  ropeHit: {fileID: 1220486019}
-  ropeMiss: {fileID: 185097545}
-  gameManager: {fileID: 1720447073}
-  weemanRigidbody: {fileID: 1986417479}
-  gameRunning: 0
-  circleBurst: {fileID: 1794980179645288, guid: 37e47ecefafb49b4eb13263ca87ab04b,
-    type: 2}
 --- !u!120 &1986417484
 LineRenderer:
   m_ObjectHideFlags: 0
