@@ -103,6 +103,7 @@ public class PlayerController : MonoBehaviour {
         spriteAnimatorRef.SetBool("CanAirDash", canAirDash);
 
 
+
         //Update when game is running:
         if (gameRunning == true)
         {
@@ -132,7 +133,7 @@ public class PlayerController : MonoBehaviour {
             }
 
             //Rope shooting
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Z))
             {
                 if (hasRope)
                     RopeShoot();
@@ -173,7 +174,7 @@ public class PlayerController : MonoBehaviour {
             }
 
             //Jumping
-            if (Input.GetKey(KeyCode.Space) || (Input.GetMouseButton(0)) && !stoppedJumping)
+            if ((Input.GetKey(KeyCode.Space) || (Input.GetMouseButton(0))) && !stoppedJumping)
             {
                 if (jumpTimeCounter > 0)
                 {
